@@ -67,6 +67,7 @@ if __name__ == '__main__':
 
     IMG_DIR = args.image_path     # './test_images'
     CROP_IMG_DIR = args.save_path  #  './test_images_cropped'
+    os.makedirs(CROP_IMG_DIR , exist_ok=True )
     filenames = os.listdir(IMG_DIR)
 
     global_scores = []
