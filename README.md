@@ -41,7 +41,7 @@ cd TF-A2RL-Test
 
 * Run the python script:
 ``` bash
-python A2RL.py --image_path test_images/3846.jpg --save_path test_images/3846_cropped.jpg
+python A2RL.py --image_path ./test_images --save_path ./test_images_cropped
 ```
 or
 ``` bash
