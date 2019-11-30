@@ -35,7 +35,7 @@ If you want to get an aesthetic score of a patch, please take a look at the exam
 * Download the code from GitHub:
 ```bash
 git clone https://github.com/pjhool/TF-A2RL-Test.git
-cd TF-A2RL
+cd TF-A2RL-Test
 ```
 * Download the pretrained models `vfn_rl.pk` from [Google Drive](https://drive.google.com/open?id=0Bybnpq8dvwudREJnRWhFbk1rYW8), then put them in current directory (`TF-A2RL/`).
 
