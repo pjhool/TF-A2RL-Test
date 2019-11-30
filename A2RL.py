@@ -67,8 +67,35 @@ if __name__ == '__main__':
     IMG_DIR ='./test_images'
     CROP_IMG_DIR = './test_images_cropped'
     filenames = os.listdir(IMG_DIR)
-    for filename in filenames:
+    for img_count, filename in enumerate(filenames) :
+
+        try:
+            full_filename = os.path.join(IMG_DIR, filename)
+            y = io.imread(full_filename)
+
+            image_x = y.shape[0]
+            image_y = y.shape[1]
+            # print(' image_filename  read : %s ' % img_filename)
+
+            # checking image aspect ratio 
+            if ((float(image_x) / image_y > 2) or (float(image_x) / image_y < 0.5)):
+                print(' img_count[%d], image_filename : %s ' % ( img_count, filename) )
+                print(y.shape)
+                continue;
+            # print (' y == ' , y.shape , 'y.dim =' ,  y.ndim   )
+            if y.ndim != 3:
+                print('img_count[%d], img_full_name  = [%s] , [%d]' % ( img_count, filename, y.ndim))
+                continue
+
+            # io.imread('test1.jpg')[:, :, :3]  # remember to replace with the filename of your test image
+        except Exception as e:
+            print(e)
+            print(' # Exception Occured ### img_count[%d], img_full_name  = [%s] , [%d]' % ( img_count, filename, y.ndim))
+            continue
+
         full_filename = os.path.join(IMG_DIR, filename)
+
+
 
         filename_no_ext = os.path.splitext(os.path.basename(full_filename))
         crop_filename = filename_no_ext[0] +'_cropped' + filename_no_ext[1]
@@ -83,7 +110,6 @@ if __name__ == '__main__':
         z = io.imread(crop_full_filename  )
         images = [
             # io.imread('test.jpg')[:, :, :3],  # remember to replace with the filename of your test image
-            # io.imread('test1.jpg')[:, :, :3],
             # io.imread('source.jpg')[:, :, :3],
             y[:, :, :3] ,
             z[:, :, :3]
