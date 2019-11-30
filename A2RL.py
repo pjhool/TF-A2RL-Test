@@ -61,12 +61,12 @@ if __name__ == '__main__':
     vfn = VFN( mode = 'NO_SPP' )  # NO_SPP, SPP_AVG , SPP_MAX
 
     parser = argparse.ArgumentParser(description='A2RL: Auto Image Cropping')
-    parser.add_argument('--image_path', required=True, help='Path for the image to be cropped')
-    parser.add_argument('--save_path', required=True, help='Path for saving cropped image')
+    parser.add_argument('--image_path', default='./test_images', help='Path for the image to be cropped')
+    parser.add_argument('--save_path', default='./test_images_cropped', help='Path for saving cropped image')
     args = parser.parse_args()
 
-    IMG_DIR ='./test_images'
-    CROP_IMG_DIR = './test_images_cropped'
+    IMG_DIR = args.image_path     # './test_images'
+    CROP_IMG_DIR = args.save_path  #  './test_images_cropped'
     filenames = os.listdir(IMG_DIR)
 
     global_scores = []
