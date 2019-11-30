@@ -2,6 +2,7 @@ from __future__ import absolute_import
 import pickle
 import argparse
 import numpy as np
+import pandas as pd
 import tensorflow as tf
 
 import skimage.io as io
@@ -67,6 +68,12 @@ if __name__ == '__main__':
     IMG_DIR ='./test_images'
     CROP_IMG_DIR = './test_images_cropped'
     filenames = os.listdir(IMG_DIR)
+
+    global_scores = []
+    crop_scores =[]
+    img_filenames= []
+    crop_img_filenames =[]
+    a2rl_results = []
     for img_count, filename in enumerate(filenames) :
 
         try:
@@ -77,7 +84,7 @@ if __name__ == '__main__':
             image_y = y.shape[1]
             # print(' image_filename  read : %s ' % img_filename)
 
-            # checking image aspect ratio 
+            # checking image aspect ratio
             if ((float(image_x) / image_y > 2) or (float(image_x) / image_y < 0.5)):
                 print(' img_count[%d], image_filename : %s ' % ( img_count, filename) )
                 print(y.shape)
@@ -119,10 +126,27 @@ if __name__ == '__main__':
         scores, features = vfn.evaluate_aesthetics_score(images)
 
         print(' scores ==', scores)
-        print('features ==', features[0][0][:30])
+        #print('features ==', features[0][0][:30])
+
+        global_scores += [scores[0]]
+
+        crop_scores += [scores[1]]
+        img_filenames += [full_filename]
+        crop_img_filenames +=  [crop_full_filename]
+
+        if scores[1] > scores[0] :
+           a2rl_results +=['Good']
+        else :
+           a2rl_results += ['Bad']
 
 
+    for index, score in enumerate(global_scores) :
+        print( ' A2RL_Result [%s] ,g_score [%f], crop_score [%f] , original filename[%s] , crop_filename[%s] '  % ( a2rl_results[index] , global_scores[index] , crop_scores[index] ,
+                                                                                               img_filenames[index] , crop_img_filenames[index]  ) )
 
-
+    pd_a2rl = pd.DataFrame({ "A2RL_Result": a2rl_results , "global_score":global_scores, "crop_score":crop_scores ,
+                            "image_filename":img_filenames , 'crop_img_filename':crop_img_filenames })
+    # saving A2RL Results to A2RL_Test.csv
+    pd_a2rl.to_csv('A2RL_Test.csv' , encoding='utf-8')
 
 
