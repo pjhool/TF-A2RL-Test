@@ -67,7 +67,7 @@ The code requires the following 3rd party libraries:
 pip install scikit-image
 ```
 Details see the official [README](https://github.com/scikit-image/scikit-image) for installing skimage.
-* [TensorFlow](https://www.tensorflow.org/)
+* [TensorFlow](https://www.tensorflow.org/) 1.4 
 
 Details see the official [README](https://github.com/tensorflow/tensorflow) for installing TensorFlow. 
 ## Command line arguments:
