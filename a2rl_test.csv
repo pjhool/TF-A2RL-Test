@@ -1,0 +1,3 @@
+,A2RL_Result,global_score,crop_score,image_filename,crop_img_filename
+0,Bad,18.77397918701172,16.489763259887695,./test_images\3846.jpg,./test_images_cropped\3846_cropped.jpg
+1,Good,6.204032897949219,18.77397918701172,./test_images\source.png,./test_images_cropped\source_cropped.png
