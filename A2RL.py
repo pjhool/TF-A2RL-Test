@@ -102,14 +102,12 @@ if __name__ == '__main__':
 
         full_filename = os.path.join(IMG_DIR, filename)
 
-
-
         filename_no_ext = os.path.splitext(os.path.basename(full_filename))
         crop_filename = filename_no_ext[0] +'_cropped' + filename_no_ext[1]
         crop_full_filename = os.path.join(CROP_IMG_DIR, crop_filename)
         print(full_filename)
         print ( crop_full_filename )
-        im = io.imread(args.image_path).astype(np.float32) / 255
+        im = io.imread(full_filename ).astype(np.float32) / 255
         xmin, ymin, xmax, ymax = auto_cropping([im - 0.5])[0]
         io.imsave(crop_full_filename , im[ymin:ymax, xmin:xmax])
 
