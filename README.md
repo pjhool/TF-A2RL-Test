@@ -47,6 +47,9 @@ or
 ``` bash
 sh example.sh
 ```
+* To A2RL Test for  AVA Landscape Images , download  [AVA Landscape Images ]( https://drive.google.com/open?id=1ojdHxuW8L10hjafwbMIJAAJsD6PYm8yU ) 
+   
+
 
 ## Results compared with baseline methods (more [results](https://debangli.github.io/A2RL/))
 
