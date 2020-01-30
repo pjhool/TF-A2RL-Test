@@ -163,7 +163,7 @@ qtconsole==4.5.5
 Quandl==3.4.8
 raven==6.9.0
 redis==3.0.1
-requests==2.19.1
+requests==2.20.0
 requests-toolbelt==0.8.0
 Rx==1.6.1
 s3transfer==0.1.13
