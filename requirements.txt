@@ -140,7 +140,7 @@ pycparser==2.19
 pydot==1.2.3
 pydot-ng==1.0.0
 pyglet==1.2.4
-Pygments==2.4.2
+Pygments==2.7.4
 pymongo==3.7.1
 PyOpenGL==3.1.0
 pyOpenSSL==19.0.0
