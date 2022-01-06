@@ -21,7 +21,7 @@ bottle==0.12.13
 box2d-py==2.3.8
 branca==0.3.0
 bz2file==0.98
-celery==4.2.1
+celery==5.2.2
 certifi==2018.4.16
 cffi==1.12.3
 chardet==3.0.4
