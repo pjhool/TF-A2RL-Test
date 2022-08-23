@@ -106,7 +106,7 @@ more-itertools==7.2.0
 moviepy==0.2.3.5
 mpmath==1.0.0
 murmurhash==1.0.1
-nbconvert==5.6.1
+nbconvert==6.5.1
 nbformat==4.4.0
 ndg-httpsclient==0.5.1
 networkx==2.2
